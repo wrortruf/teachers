@@ -493,6 +493,16 @@ const AppState = {
 
 };
 
+const backgroundMusic = document.getElementById("backgroundMusic");
+
+function playMusic() {
+    backgroundMusic.volume = 0.35;
+    backgroundMusic.play().catch(() => {});
+}
+
+function pauseMusic() {
+    backgroundMusic.pause();
+}
 
 /* =========================================================
    04. DOM HELPERS
