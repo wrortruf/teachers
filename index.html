@@ -57,9 +57,7 @@
 
 <body>
 
-<audio id="backgroundMusic" loop preload="auto">
-    <source src="bg.mp3" type="audio/mpeg">
-</audio>
+
 
  
 <!-- =====================================================
@@ -205,15 +203,14 @@
         id="musicButton"
         class="icon-button"
         type="button"
-        aria-label="Toggle ambient sound"
-        title="Ambient sound"
+        aria-label="Play ambient music"
     >
-
-        <span id="musicIcon">
-            ♫
-        </span>
-
+        <span id="musicIcon">♪</span>
     </button>
+
+    <audio id="ambientAudio" loop preload="auto">
+        <source src="bg.mp3" type="audio/mpeg">
+    </audio>
 
 </header>
 
@@ -1421,28 +1418,34 @@
 
 
         <p class="modal-small">
-            FROM ALL OF US
+            A LITTLE MESSAGE OF GRATITUDE
         </p>
 
-
         <h2 id="modalTitle">
-
-            Thank You
-
+            Thank You,
             <span>
-                Teacher.
+                Dear Teacher.
             </span>
-
         </h2>
-
 
         <p
             id="modalMessage"
             class="modal-message"
         >
-            For everything.
+            You didn't just teach us lessons from books.
+            <br>
+            You taught us how to think, how to grow,
+            how to believe in ourselves, and how to keep going.
+            <br><br>
+            For every word of encouragement,
+            every patient explanation,
+            every correction, and every moment you stood by us—
+            <br>
+            <strong>thank you.</strong>
+            <br><br>
+            The chapters may end,
+            but the impact of a great teacher never does.
         </p>
-
 
         <div
             class="modal-heart"
@@ -1451,9 +1454,10 @@
             ♥
         </div>
 
-
         <p class="modal-signature">
-            Students of Educare
+            With endless gratitude
+            <br>
+            <span>Students of Educare</span>
         </p>
 
     </div>
@@ -1466,11 +1470,7 @@
      OPTIONAL AMBIENT AUDIO
 ====================================================== -->
 
-<audio
-    id="ambientAudio"
-    loop
-    preload="none"
-></audio>
+
 
 
 
@@ -1480,6 +1480,9 @@
 
 <script src="script.js"></script>
  
+
+
+
 
 </body>
 

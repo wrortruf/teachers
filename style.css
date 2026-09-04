@@ -9055,3 +9055,29 @@ body {
         box-shadow: 0 5px 16px rgba(0,0,0,.10) !important;
     }
 }
+
+
+.music-button {
+    position: relative;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+.music-button * {
+    pointer-events: none;
+}
+
+#ambientAudio {
+    display: none;
+}
+
+.top-navigation {
+    position: relative;
+    z-index: 9998;
+}
+
+.music-button {
+    position: relative;
+    z-index: 10000 !important;
+}

@@ -493,16 +493,7 @@ const AppState = {
 
 };
 
-const backgroundMusic = document.getElementById("backgroundMusic");
 
-function playMusic() {
-    backgroundMusic.volume = 0.35;
-    backgroundMusic.play().catch(() => {});
-}
-
-function pauseMusic() {
-    backgroundMusic.pause();
-}
 
 /* =========================================================
    04. DOM HELPERS
@@ -4140,104 +4131,109 @@ function initializeButtons() {
    47. MUSIC CONTROL
    ========================================================= */
 
+/* =========================================================
+   47. MUSIC CONTROL — FIXED
+   ========================================================= */
+
 function initializeMusicButton() {
 
-    if (
-        !DOM.musicButton ||
-        !DOM.ambientAudio
-    ) return;
+    const button = document.getElementById("musicButton");
+    const icon = document.getElementById("musicIcon");
+    const audio = document.getElementById("ambientAudio");
 
+    console.log("🎵 Music system check:", {
+        button: !!button,
+        icon: !!icon,
+        audio: !!audio
+    });
 
-    DOM.musicButton.addEventListener(
-        "click",
-        async () => {
+    if (!button) {
+        console.error("❌ #musicButton not found");
+        return;
+    }
 
-            try {
+    if (!audio) {
+        console.error("❌ #ambientAudio not found");
+        return;
+    }
 
-                if (
-                    DOM.ambientAudio.paused
-                ) {
+    /* Prevent duplicate listeners */
+    if (button.dataset.musicInitialized === "true") {
+        return;
+    }
 
-                    await DOM.ambientAudio.play();
+    button.dataset.musicInitialized = "true";
 
+    audio.loop = true;
+    audio.volume = 0.35;
 
-                    AppState.soundEnabled =
-                        true;
+    button.addEventListener("click", async function (event) {
 
+        event.preventDefault();
+        event.stopPropagation();
 
-                    if (
-                        DOM.musicIcon
-                    ) {
+        console.log("🎵 Music button clicked");
 
-                        DOM.musicIcon.textContent =
-                            "♫";
+        try {
 
-                    }
+            if (audio.paused) {
 
+                await audio.play();
 
-                    DOM.musicButton.setAttribute(
-                        "aria-label",
-                        "Mute ambient music"
-                    );
+                AppState.soundEnabled = true;
 
-
-                    DOM.musicButton.classList.add(
-                        "music-active"
-                    );
-
-
-                    showToast(
-                        "♫ Ambient music on"
-                    );
-
-                }
-                else {
-
-                    DOM.ambientAudio.pause();
-
-
-                    AppState.soundEnabled =
-                        false;
-
-
-                    if (
-                        DOM.musicIcon
-                    ) {
-
-                        DOM.musicIcon.textContent =
-                            "♪";
-
-                    }
-
-
-                    DOM.musicButton.setAttribute(
-                        "aria-label",
-                        "Play ambient music"
-                    );
-
-
-                    DOM.musicButton.classList.remove(
-                        "music-active"
-                    );
-
-
-                    showToast(
-                        "♪ Ambient music off"
-                    );
-
+                if (icon) {
+                    icon.textContent = "♫";
                 }
 
-            }
-            catch (error) {
+                button.classList.add("music-active");
 
-                showToast(
-                    "♪ Add an audio source to enable music"
+                button.setAttribute(
+                    "aria-label",
+                    "Mute ambient music"
                 );
 
+                showToast("♫ Ambient music on");
+
+                console.log("✅ Music playing");
+
+            } else {
+
+                audio.pause();
+
+                AppState.soundEnabled = false;
+
+                if (icon) {
+                    icon.textContent = "♪";
+                }
+
+                button.classList.remove("music-active");
+
+                button.setAttribute(
+                    "aria-label",
+                    "Play ambient music"
+                );
+
+                showToast("♪ Ambient music off");
+
+                console.log("⏸ Music paused");
+
             }
 
+        } catch (error) {
+
+            console.error(
+                "❌ Audio playback failed:",
+                error
+            );
+
+            showToast(
+                "⚠️ Music file not found"
+            );
+
         }
-    );
+
+    });
 
 }
 
