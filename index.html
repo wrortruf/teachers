@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+ 
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta
+    name="theme-color"
+    content="#080912"
+>
+
+<meta
+    name="description"
+    content="A special Teacher's Day experience created with love and gratitude by the students of Educare."
+>
+
+<meta
+    name="author"
+    content="Students of Educare"
+>
+
+<title>Educare | Teacher's Day 2026</title>
+
+<!-- =====================================================
+     GOOGLE FONTS
+====================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<!-- =====================================================
+     MAIN CSS
+====================================================== -->
+
+<link rel="stylesheet" href="style.css">
+ 
+
+</head>
+
+<body>
+
+ 
+<!-- =====================================================
+     ACCESSIBILITY
+====================================================== -->
+
+
+
+
+<!-- =====================================================
+     LOADING SCREEN
+====================================================== -->
+
+<div
+    id="loadingScreen"
+    class="loading-screen"
+    aria-label="Loading Teacher's Day experience"
+>
+
+    <div class="loading-background-symbols" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>◇</span>
+        <span>★</span>
+        <span>∞</span>
+    </div>
+
+
+    <div class="loading-content">
+
+        <div class="loading-symbol">
+            ✦
+        </div>
+
+        <div class="loading-brand">
+            EDUCARE
+        </div>
+
+        <div class="loading-subtitle">
+            TEACHER'S DAY • 2026
+        </div>
+
+        <div class="loading-line">
+            <span id="loadingProgress"></span>
+        </div>
+
+        <p>
+            Preparing something special...
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     AMBIENT BACKGROUND
+====================================================== -->
+
+<div
+    class="ambient-background"
+    aria-hidden="true"
+>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+
+    <div class="ambient-ring ring-1"></div>
+    <div class="ambient-ring ring-2"></div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PARTICLE CANVAS
+====================================================== -->
+
+<canvas
+    id="particleCanvas"
+    aria-hidden="true"
+></canvas>
+
+
+
+<!-- =====================================================
+     CURSOR GLOW
+====================================================== -->
+
+<div
+    id="cursorGlow"
+    class="cursor-glow"
+    aria-hidden="true"
+></div>
+
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+====================================================== -->
+
+<header
+    id="topNavigation"
+    class="top-navigation"
+>
+
+    <div class="nav-brand">
+
+        <span class="nav-brand-dot"></span>
+
+        <span>
+            EDUCARE
+        </span>
+
+    </div>
+
+
+    <div
+        id="progressIndicator"
+        class="progress-indicator"
+        aria-label="Experience progress"
+    >
+
+        <span id="progressCurrent">
+            01
+        </span>
+
+        <span class="progress-line">
+            <span id="progressFill"></span>
+        </span>
+
+        <span id="progressTotal">
+            05
+        </span>
+
+    </div>
+
+
+    <button
+        id="musicButton"
+        class="icon-button"
+        type="button"
+        aria-label="Toggle ambient sound"
+        title="Ambient sound"
+    >
+
+        <span id="musicIcon">
+            ♫
+        </span>
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+====================================================== -->
+
+<main id="app">
+
+
+    <!-- =================================================
+         SCREEN 00
+         INTRO
+    ================================================== -->
+
+    <section
+        id="introScreen"
+        class="screen active"
+        data-screen="0"
+        aria-label="Introduction"
+    >
+
+        <div class="intro-content">
+
+
+            <div class="educare-badge reveal-item">
+
+                <span class="badge-dot"></span>
+
+                <span>
+                    EDUCARE
+                </span>
+
+                <span class="badge-year">
+                    2026
+                </span>
+
+            </div>
+
+
+            <div
+                class="intro-symbol reveal-item"
+                aria-hidden="true"
+            >
+                ✦
+            </div>
+
+
+            <p class="small-heading reveal-item">
+                A LITTLE SOMETHING
+            </p>
+
+
+            <h1 class="intro-title reveal-item">
+
+                From Your
+
+                <span>
+                    Students
+                </span>
+
+            </h1>
+
+
+            <p class="intro-description reveal-item">
+
+                A small digital surprise created
+                with gratitude, respect,
+                memories and lots of love.
+
+            </p>
+
+
+            <div class="intro-meta reveal-item">
+
+                <span>✦</span>
+
+                <span>
+                    TEACHER'S DAY
+                </span>
+
+                <span>✦</span>
+
+            </div>
+
+
+            <button
+                id="enterButton"
+                class="primary-button reveal-item"
+                type="button"
+            >
+
+                <span>
+                    ENTER EXPERIENCE
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="scroll-hint reveal-item">
+
+                <span class="scroll-dot"></span>
+
+                <span>
+                    TAP TO BEGIN
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="corner-decoration corner-top-left"
+            aria-hidden="true"
+        >
+            ✧
+        </div>
+
+        <div
+            class="corner-decoration corner-bottom-right"
+            aria-hidden="true"
+        >
+            ✧
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SCREEN 01
+         OPENING MESSAGE
+    ================================================== -->
+
+    <section
+        id="messageScreen"
+        class="screen"
+        data-screen="1"
+        aria-label="Opening message"
+    >
+
+        <div class="message-container">
+
+
+            <div class="section-label">
+
+                <span>
+                    01
+                </span>
+
+                <span>
+                    A MESSAGE
+                </span>
+
+            </div>
+
+
+            <div
+                class="quote-mark"
+                aria-hidden="true"
+            >
+                “
+            </div>
+
+
+            <h2 id="mainMessage">
+
+                Teachers don't just
+                teach lessons...
+
+            </h2>
+
+
+            <p id="messageSubtext">
+
+                They leave footprints
+                on our lives.
+
+            </p>
+
+
+            <div class="message-divider">
+
+                <span></span>
+
+                <span>
+                    ✦
+                </span>
+
+                <span></span>
+
+            </div>
+
+
+            <div
+                class="message-points"
+                id="messagePoints"
+            >
+
+                <div class="message-point">
+
+                    <span>
+                        01
+                    </span>
+
+                    <p>
+                        They guide us.
+                    </p>
+
+                </div>
+
+
+                <div class="message-point">
+
+                    <span>
+                        02
+                    </span>
+
+                    <p>
+                        They believe in us.
+                    </p>
+
+                </div>
+
+
+                <div class="message-point">
+
+                    <span>
+                        03
+                    </span>
+
+                    <p>
+                        They help us grow.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="continueButton"
+                class="primary-button"
+                type="button"
+            >
+
+                <span>
+                    MEET OUR TEACHERS
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SCREEN 02
+         TEACHER SELECTION
+    ================================================== -->
+
+    <section
+        id="teacherScreen"
+        class="screen"
+        data-screen="2"
+        aria-label="Teacher selection"
+    >
+
+        <div class="teacher-selection">
+
+
+            <div class="selection-top-decoration">
+                <span>✦</span>
+                <span>✧</span>
+                <span>✦</span>
+            </div>
+
+
+            <div class="section-label centered">
+
+                <span>
+                    02
+                </span>
+
+                <span>
+                    THE PEOPLE BEHIND THE LESSONS
+                </span>
+
+            </div>
+
+
+            <h2 class="selection-title">
+
+                Choose Your
+
+                <span>
+                    Teacher
+                </span>
+
+            </h2>
+
+
+            <p class="selection-description">
+
+                Every teacher deserves a little
+                appreciation.
+
+                <br>
+
+                Tap a name to open their
+                personal surprise.
+
+            </p>
+
+
+            <!-- =========================================
+                 TEACHER COUNT
+            ========================================== -->
+
+            <div class="teacher-count">
+
+                <span class="count-line"></span>
+
+                <span>
+                    04 TEACHERS • 04 STORIES
+                </span>
+
+                <span class="count-line"></span>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 TEACHER GRID
+                 JS GENERATES THE CARDS
+            ========================================== -->
+
+            <div
+                id="teacherGrid"
+                class="teacher-grid"
+            >
+            </div>
+
+
+
+            <!-- =========================================
+                 APPRECIATION COUNTERS
+            ========================================== -->
+
+            <div
+                class="appreciation-counters"
+                id="appreciationCounters"
+            >
+
+                <div class="counter-item">
+
+                    <strong data-counter="100">
+                        ∞
+                    </strong>
+
+                    <span>
+                        LESSONS
+                    </span>
+
+                </div>
+
+
+                <div class="counter-divider">
+                    ✦
+                </div>
+
+
+                <div class="counter-item">
+
+                    <strong data-counter="100">
+                        ∞
+                    </strong>
+
+                    <span>
+                        MEMORIES
+                    </span>
+
+                </div>
+
+
+                <div class="counter-divider">
+                    ✦
+                </div>
+
+
+                <div class="counter-item">
+
+                    <strong data-counter="100">
+                        ∞
+                    </strong>
+
+                    <span>
+                        GRATITUDE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 SELECTION FOOTER
+            ========================================== -->
+
+            <div class="selection-footer">
+
+                <span>
+                    MADE WITH ♥
+                </span>
+
+                <span class="footer-separator">
+                    •
+                </span>
+
+                <span>
+                    BY THE STUDENTS OF EDUCARE
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SCREEN 03
+         TEACHER DETAIL
+    ================================================== -->
+
+    <section
+        id="teacherDetailScreen"
+        class="screen teacher-detail-screen"
+        data-screen="3"
+        aria-label="Teacher appreciation letter"
+    >
+
+        <div class="detail-container">
+
+
+            <!-- =========================================
+                 DETAIL NAVIGATION
+            ========================================== -->
+
+            <div class="detail-navigation">
+
+                <button
+                    id="backButton"
+                    class="back-button"
+                    type="button"
+                >
+
+                    <span>
+                        ←
+                    </span>
+
+                    <span>
+                        ALL TEACHERS
+                    </span>
+
+                </button>
+
+
+                <div
+                    class="detail-page-number"
+                    aria-label="Current teacher"
+                >
+
+                    <span id="detailCurrentNumber">
+                        01
+                    </span>
+
+                    <span>
+                        /
+                    </span>
+
+                    <span>
+                        04
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 TEACHER HERO
+            ========================================== -->
+
+            <div
+                class="teacher-hero"
+                id="teacherHero"
+            >
+
+                <div
+                    class="teacher-number"
+                    id="teacherNumber"
+                >
+                    01
+                </div>
+
+
+                <div
+                    class="teacher-hero-orbit orbit-left"
+                    aria-hidden="true"
+                >
+                    ✧
+                </div>
+
+                <div
+                    class="teacher-hero-orbit orbit-right"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+
+                <div
+                    class="teacher-icon"
+                    id="teacherIcon"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+
+                <p class="detail-small">
+                    DEAR
+                </p>
+
+
+                <h1 id="teacherName">
+                    Teacher
+                </h1>
+
+
+                <div class="gold-line"></div>
+
+
+                <p
+                    id="teacherRole"
+                    class="teacher-role"
+                >
+                    A GUIDE • A MENTOR • AN INSPIRATION
+                </p>
+
+
+                <p
+                    id="teacherTagline"
+                    class="teacher-tagline"
+                >
+                    Thank you for being more than a teacher.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 PERSONAL MESSAGE
+            ========================================== -->
+
+            <div
+                class="personal-message-card"
+                id="personalMessageCard"
+            >
+
+                <div class="card-top">
+
+                    <span>
+                        FROM YOUR STUDENTS
+                    </span>
+
+                    <span>
+                        ♥
+                    </span>
+
+                </div>
+
+
+                <div class="personal-message">
+
+                    <p
+                        id="teacherGreeting"
+                        class="teacher-greeting"
+                    >
+                        Dear Teacher,
+                    </p>
+
+
+                    <div
+                        id="teacherMessage"
+                        class="teacher-message-body"
+                    >
+                    </div>
+
+
+                    <div class="message-signature">
+
+                        <span>
+                            With love & gratitude,
+                        </span>
+
+                        <strong>
+                            The Students of Educare
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 LESSONS BEYOND BOOKS
+            ========================================== -->
+
+            <div
+                class="beyond-books-section"
+            >
+
+                <div class="section-label">
+
+                    <span>
+                        03
+                    </span>
+
+                    <span>
+                        LESSONS BEYOND BOOKS
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="lesson-grid"
+                    id="lessonGrid"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 WHY YOU MATTER
+            ========================================== -->
+
+            <div
+                class="appreciation-section"
+            >
+
+                <div class="section-label">
+
+                    <span>
+                        04
+                    </span>
+
+                    <span>
+                        WHY YOU MATTER
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="appreciation-grid"
+                    id="appreciationGrid"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 RANDOM APPRECIATION
+            ========================================== -->
+
+            <div class="quote-machine">
+
+                <div
+                    class="quote-machine-symbol"
+                    aria-hidden="true"
+                >
+                    ✧
+                </div>
+
+
+                <p class="quote-machine-label">
+                    A LITTLE MORE APPRECIATION
+                </p>
+
+
+                <div
+                    id="randomQuote"
+                    class="random-quote"
+                >
+                    Click below for a little reminder
+                    of why teachers matter.
+                </div>
+
+
+                <button
+                    id="quoteButton"
+                    class="outline-button"
+                    type="button"
+                >
+
+                    <span>
+                        GIVE ME ANOTHER REASON
+                    </span>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 SECRET SURPRISE
+            ========================================== -->
+
+            <div
+                class="secret-section"
+                id="secretSection"
+            >
+
+                <div
+                    class="secret-glow"
+                    aria-hidden="true"
+                ></div>
+
+
+                <div
+                    class="secret-lock"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+
+                <p class="secret-label">
+                    THERE'S SOMETHING ELSE...
+                </p>
+
+
+                <h3>
+                    A message
+                    <span>
+                        just for you.
+                    </span>
+                </h3>
+
+
+                <button
+                    id="secretButton"
+                    class="secret-button"
+                    type="button"
+                >
+
+                    <span>
+                        REVEAL
+                    </span>
+
+                    <span>
+                        ✦
+                    </span>
+
+                </button>
+
+
+                <div
+                    id="secretMessage"
+                    class="secret-message"
+                >
+
+                    <p>
+                        The best teachers aren't remembered
+                        because they taught the most.
+                    </p>
+
+                    <strong>
+                        They're remembered because
+                        they made us believe we could.
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 TEACHER NAVIGATION
+            ========================================== -->
+
+            <div class="teacher-navigation">
+
+                <button
+                    id="previousTeacherButton"
+                    class="teacher-nav-button"
+                    data-action="previous"
+                    type="button"
+                    aria-label="Previous teacher"
+                >
+
+                    <span>
+                        ←
+                    </span>
+
+                    <small>
+                        PREVIOUS
+                    </small>
+
+                    <strong data-nav="previous-name">
+                        Teacher
+                    </strong>
+
+                </button>
+
+
+                <button
+                    id="allTeachersButton"
+                    class="teacher-nav-center"
+                    data-action="all-teachers"
+                    type="button"
+                    aria-label="View all teachers"
+                >
+
+                    <span>
+                        ✦
+                    </span>
+
+                    ALL TEACHERS
+
+                </button>
+
+
+                <button
+                    id="nextTeacherButton"
+                    class="teacher-nav-button"
+                    data-action="next"
+                    type="button"
+                    aria-label="Next teacher"
+                >
+
+                    <strong data-nav="next-name">
+                        Teacher
+                    </strong>
+
+                    <small>
+                        NEXT
+                    </small>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 FINAL ACTION
+            ========================================== -->
+
+            <div class="final-action">
+
+                <div class="final-action-line">
+                    <span></span>
+                    <span>✦</span>
+                    <span></span>
+                </div>
+
+
+                <p>
+                    Ready for one last message?
+                </p>
+
+
+                <button
+                    id="surpriseButton"
+                    class="surprise-button"
+                    type="button"
+                >
+
+                    <span class="surprise-icon">
+                        ✦
+                    </span>
+
+                    <span>
+                        ONE LAST MESSAGE
+                    </span>
+
+                    <span class="surprise-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SCREEN 04
+         FINAL CELEBRATION
+    ================================================== -->
+
+    <section
+        id="finalScreen"
+        class="screen"
+        data-screen="4"
+        aria-label="Final Teacher's Day message"
+    >
+
+        <div class="final-container">
+
+
+            <div
+                class="final-stars"
+                aria-hidden="true"
+            >
+                ✦
+                <span>✧</span>
+                ✦
+            </div>
+
+
+            <p class="final-small">
+                AND FINALLY...
+            </p>
+
+
+            <h1>
+
+                Happy
+
+                <span>
+                    Teacher's Day
+                </span>
+
+            </h1>
+
+
+            <div
+                class="final-teacher-name"
+                id="finalTeacherName"
+            >
+                Teacher
+            </div>
+
+
+            <div class="final-message">
+
+                <p>
+                    Thank you for every lesson,
+                    every correction, every smile,
+                    every moment of patience,
+                    and every little thing
+                    that made us better.
+                </p>
+
+
+                <p>
+                    We may forget some chapters
+                    from our books...
+                </p>
+
+
+                <p class="highlight">
+                    But we'll never forget the teachers
+                    who helped us write our story.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 FINAL STATS
+            ========================================== -->
+
+            <div class="final-stats">
+
+                <div>
+
+                    <strong>
+                        ∞
+                    </strong>
+
+                    <span>
+                        MEMORIES
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ∞
+                    </strong>
+
+                    <span>
+                        LESSONS
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ♥
+                    </strong>
+
+                    <span>
+                        GRATITUDE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="final-divider">
+
+                <span></span>
+
+                <span>
+                    ♥
+                </span>
+
+                <span></span>
+
+            </div>
+
+
+            <p class="final-signature">
+
+                With endless gratitude
+
+                <br>
+
+                <strong>
+                    — Students of Educare
+                </strong>
+
+            </p>
+
+
+            <div class="final-year">
+                TEACHER'S DAY • 2026
+            </div>
+
+
+            <button
+                id="restartButton"
+                class="restart-button"
+                type="button"
+            >
+
+                <span>
+                    ↻
+                </span>
+
+                EXPERIENCE AGAIN
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FLOATING ELEMENTS
+====================================================== -->
+
+<div
+    id="floatingElements"
+    aria-hidden="true"
+></div>
+
+
+
+<!-- =====================================================
+     CONFETTI
+====================================================== -->
+
+<div
+    id="confettiContainer"
+    aria-hidden="true"
+></div>
+
+
+
+<!-- =====================================================
+     FIREWORKS
+====================================================== -->
+
+<div
+    id="fireworksContainer"
+    aria-hidden="true"
+></div>
+
+
+
+<!-- =====================================================
+     TOAST
+====================================================== -->
+
+<div
+    id="toast"
+    role="status"
+    aria-live="polite"
+>
+    ✦ A little surprise for you
+</div>
+
+
+
+<!-- =====================================================
+     CELEBRATION MODAL
+====================================================== -->
+
+<div
+    id="celebrationModal"
+    class="celebration-modal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-backdrop"
+        aria-hidden="true"
+    ></div>
+
+
+    <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+
+
+        <button
+            id="modalClose"
+            class="modal-close"
+            type="button"
+            aria-label="Close celebration message"
+        >
+            ×
+        </button>
+
+
+        <div
+            class="modal-symbol"
+            aria-hidden="true"
+        >
+            ✦
+        </div>
+
+
+        <p class="modal-small">
+            FROM ALL OF US
+        </p>
+
+
+        <h2 id="modalTitle">
+
+            Thank You
+
+            <span>
+                Teacher.
+            </span>
+
+        </h2>
+
+
+        <p
+            id="modalMessage"
+            class="modal-message"
+        >
+            For everything.
+        </p>
+
+
+        <div
+            class="modal-heart"
+            aria-hidden="true"
+        >
+            ♥
+        </div>
+
+
+        <p class="modal-signature">
+            Students of Educare
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     OPTIONAL AMBIENT AUDIO
+====================================================== -->
+
+<audio
+    id="ambientAudio"
+    loop
+    preload="none"
+></audio>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="script.js"></script>
+ 
+
+</body>
+
+</html>
