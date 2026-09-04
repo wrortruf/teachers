@@ -8985,3 +8985,73 @@ body {
         animation: none !important;
     }
 }
+
+
+/* =========================================================
+   EDUCARE — MOBILE ULTRA SMOOTH MODE
+   Designed for lower-power phones and mobile browsers.
+   ========================================================= */
+@media (max-width: 768px), (pointer: coarse) {
+    /* Continuous canvas/decorative layers are disabled on mobile. */
+    #particleCanvas,
+    #floatingElements {
+        display: none !important;
+    }
+
+    /* Remove GPU-expensive blur/filter effects from mobile rendering. */
+    *, *::before, *::after {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    .orb {
+        display: none !important;
+        animation: none !important;
+        filter: none !important;
+    }
+
+    .ambient-ring,
+    .cursor-glow {
+        display: none !important;
+    }
+
+    /* Stop decorative infinite animations; keep screen/teacher transitions. */
+    .nav-brand-dot,
+    .loading-symbol,
+    .icon-ring,
+    .secret-icon,
+    .surprise-icon,
+    .final-stars,
+    .quote-symbol,
+    .hint-dot {
+        animation: none !important;
+    }
+
+    /* Reduce paint-heavy shadows on dense cards. */
+    .teacher-card,
+    .personal-message-card,
+    .lesson-card,
+    .appreciation-card,
+    .quote-machine,
+    .secret-section,
+    .modal-content {
+        box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
+    }
+
+    /* Avoid smooth-scroll interpolation fighting touch scrolling. */
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .teacher-card,
+    .personal-message-card,
+    .lesson-card,
+    .appreciation-card,
+    .quote-machine,
+    .secret-section,
+    .modal-content {
+        box-shadow: 0 5px 16px rgba(0,0,0,.10) !important;
+    }
+}

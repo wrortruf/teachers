@@ -2324,7 +2324,7 @@ function createFirework(
 
 
     const particleCount =
-        28;
+        window.innerWidth <= 768 ? 12 : 28;
 
 
     for (
@@ -2473,7 +2473,7 @@ function launchGrandCelebration() {
     createConfetti(
         CONFIG.reducedMotion
             ? 0
-            : 110
+            : (window.innerWidth <= 768 ? 45 : 110)
     );
 
 
@@ -2896,6 +2896,17 @@ const particleSystem = {
    ========================================================= */
 
 function initializeParticles() {
+
+    // Mobile performance mode: the canvas particle engine is decorative and
+    // costs continuous CPU/GPU time while the user is scrolling.
+    if (window.innerWidth <= 768 || (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)) {
+        const mobileCanvas = getElement("particleCanvas");
+        if (mobileCanvas) mobileCanvas.style.display = "none";
+        particleSystem.canvas = null;
+        particleSystem.ctx = null;
+        particleSystem.particles = [];
+        return;
+    }
 
     particleSystem.canvas =
         getElement(
@@ -3722,7 +3733,7 @@ function openCelebrationModal() {
     createConfetti(
         CONFIG.reducedMotion
             ? 0
-            : 70
+            : (window.innerWidth <= 768 ? 30 : 70)
     );
 
 
@@ -4609,6 +4620,7 @@ function initializePerformanceHandling() {
                 !document.hidden &&
                 particleSystem.canvas &&
                 !CONFIG.reducedMotion &&
+                window.innerWidth > 768 &&
                 !particleSystem.animationFrame
             ) {
 
