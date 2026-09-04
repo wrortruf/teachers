@@ -432,10 +432,10 @@ const CONFIG = {
         0.000075,
 
     maxParticles:
-        130,
+        72,
 
     confettiAmount:
-        150,
+        90,
 
     teacherTransitionDuration:
         700,
@@ -2324,7 +2324,7 @@ function createFirework(
 
 
     const particleCount =
-        45;
+        28;
 
 
     for (
@@ -2473,7 +2473,7 @@ function launchGrandCelebration() {
     createConfetti(
         CONFIG.reducedMotion
             ? 0
-            : 190
+            : 110
     );
 
 
@@ -2518,7 +2518,7 @@ function createBurst(
     const safeAmount =
         Math.min(
             amount,
-            45
+            24
         );
 
 
@@ -2883,7 +2883,10 @@ const particleSystem = {
         CONFIG.particleDensity,
 
     animationFrame:
-        null
+        null,
+
+    lastFrameTime:
+        0
 
 };
 
@@ -2947,7 +2950,7 @@ function resizeParticleCanvas() {
     const ratio =
         Math.min(
             window.devicePixelRatio || 1,
-            2
+            window.innerWidth <= 768 ? 1 : 1.5
         );
 
 
@@ -3080,7 +3083,7 @@ function createBackgroundParticles() {
    37. ANIMATE BACKGROUND PARTICLES
    ========================================================= */
 
-function animateBackgroundParticles() {
+function animateBackgroundParticles(timestamp = 0) {
 
     const canvas =
         particleSystem.canvas;
@@ -3094,6 +3097,19 @@ function animateBackgroundParticles() {
         !canvas ||
         !ctx
     ) return;
+
+    // Keep the decorative particle layer lightweight.
+    // Drawing at ~30 FPS is visually smooth but much cheaper than
+    // repainting the canvas on every display refresh.
+    const minFrameGap = window.innerWidth <= 768 ? 50 : 33;
+    const lastFrame = particleSystem.lastFrameTime || 0;
+
+    if (timestamp - lastFrame < minFrameGap) {
+        particleSystem.animationFrame = requestAnimationFrame(animateBackgroundParticles);
+        return;
+    }
+
+    particleSystem.lastFrameTime = timestamp;
 
 
     ctx.clearRect(
@@ -3404,7 +3420,7 @@ function initializeCardParallax() {
         ).matches;
 
 
-    if (!supportsHover)
+    if (!supportsHover || window.innerWidth <= 900)
         return;
 
 
@@ -4344,56 +4360,13 @@ function initializeAccessibility() {
     const teacherCards =
         $$(".teacher-card");
 
+    teacherCards.forEach(card => {
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("role", "button");
+    });
 
-    teacherCards.forEach(
-        (card, index) => {
-
-            card.setAttribute(
-                "tabindex",
-                "0"
-            );
-
-
-            card.setAttribute(
-                "role",
-                "button"
-            );
-
-
-            card.addEventListener(
-                "keydown",
-                event => {
-
-                    if (
-                        event.key === "Enter" ||
-                        event.key === " "
-                    ) {
-
-                        event.preventDefault();
-
-
-                        openTeacher(
-                            index
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    if (
-        DOM.modal
-    ) {
-
-        DOM.modal.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
+    if (DOM.modal) {
+        DOM.modal.setAttribute("aria-hidden", "true");
     }
 
 }
@@ -4472,7 +4445,7 @@ function initializeEasterEgg() {
                 createConfetti(
                     CONFIG.reducedMotion
                         ? 0
-                        : 120
+                        : 70
                 );
 
 
@@ -4629,6 +4602,8 @@ function initializePerformanceHandling() {
                 particleSystem.animationFrame =
                     null;
 
+                particleSystem.lastFrameTime = 0;
+
             }
             else if (
                 !document.hidden &&
@@ -4753,12 +4728,18 @@ function initializeApp() {
         : 900);
 
 
+    let resizeFrame = null;
+
     window.addEventListener(
         "resize",
-        resizeParticleCanvas,
-        {
-            passive: true
-        }
+        () => {
+            if (resizeFrame) return;
+            resizeFrame = requestAnimationFrame(() => {
+                resizeFrame = null;
+                resizeParticleCanvas();
+            });
+        },
+        { passive: true }
     );
 
 }

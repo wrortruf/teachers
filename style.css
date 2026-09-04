@@ -8847,3 +8847,141 @@ body {
 /* =========================================================
    END OF EDUCARE — ULTRA PREMIUM RESPONSIVE CSS
    ========================================================= */
+
+/* =========================================================
+   EDUCARE PERFORMANCE LAYER
+   Lightweight rendering without removing the premium look
+   ========================================================= */
+
+/* Only animate/transition compositor-friendly properties. */
+.teacher-card,
+.primary-button,
+.outline-button,
+.secret-button,
+.teacher-nav-button,
+.teacher-nav-center,
+.restart-button,
+.icon-button,
+.reveal-item,
+.teacher-hero,
+.personal-message-card,
+.lesson-card,
+.appreciation-card,
+.quote-machine,
+.secret-section,
+.modal-content {
+    will-change: auto;
+}
+
+/* Avoid expensive blur on the majority of static cards. */
+.personal-message-card,
+.lesson-card,
+.appreciation-card,
+.quote-machine,
+.secret-section,
+.icon-button,
+.modal-content {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Keep background effects compositor-friendly. */
+.ambient-background .orb,
+.ambient-background .ambient-ring {
+    will-change: transform;
+}
+
+/* Particle canvas should never participate in pointer/layout work. */
+#particleCanvas,
+#floatingElements,
+#confettiContainer,
+#fireworksContainer {
+    pointer-events: none !important;
+    contain: strict;
+}
+
+/* Don't spend paint time on inactive screens. */
+.screen:not(.active) {
+    contain: paint;
+}
+
+/* Mobile: prioritize scrolling and touch responsiveness. */
+@media (max-width: 768px) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .personal-message-card,
+    .lesson-card,
+    .appreciation-card,
+    .quote-machine,
+    .secret-section,
+    .icon-button,
+    .modal-content {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    .orb {
+        filter: blur(55px) !important;
+        opacity: .10 !important;
+    }
+
+    .ambient-ring {
+        display: none !important;
+    }
+
+    #particleCanvas {
+        opacity: .55 !important;
+    }
+
+    .cursor-glow {
+        display: none !important;
+    }
+
+    /* Prevent accidental GPU promotion of every card. */
+    .teacher-card,
+    .lesson-card,
+    .appreciation-card,
+    .personal-message-card {
+        will-change: auto !important;
+    }
+}
+
+/* Very small/low-power phones: fewer decorative repaints. */
+@media (max-width: 480px) {
+
+    #particleCanvas {
+        opacity: .35 !important;
+    }
+
+    .orb {
+        filter: blur(42px) !important;
+        opacity: .075 !important;
+    }
+
+    .loading-symbol,
+    .nav-brand-dot {
+        animation-duration: 2.4s !important;
+    }
+}
+
+/* Respect reduced-motion and also reduce effects on devices that
+   explicitly request less animation. */
+@media (prefers-reduced-motion: reduce) {
+
+    #particleCanvas,
+    #floatingElements,
+    #confettiContainer,
+    #fireworksContainer {
+        display: none !important;
+    }
+
+    .orb,
+    .ambient-ring,
+    .nav-brand-dot,
+    .loading-symbol {
+        animation: none !important;
+    }
+}
